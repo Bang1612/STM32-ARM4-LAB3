@@ -1,0 +1,2 @@
+../Core/Src/fsm_auto.c:15:6:TrafficLightInit	1
+../Core/Src/fsm_auto.c:22:6:fsm_auto_run	5
