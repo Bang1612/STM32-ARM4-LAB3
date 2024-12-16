@@ -511,24 +511,24 @@ void lcd_StrCenter(uint16_t x, uint16_t y,char *str,uint16_t fc,uint16_t bc,uint
 }
 
 void Init_lcd(){
-	lcd_Clear(WHITE);
-	lcd_DrawRectangle(10, 40, 59, 239, BLACK);
-	lcd_DrawRectangle(180, 40, 229, 239, BLACK);
-	lcd_DrawCircle(35, 65, RED, 5, 1);
-	lcd_DrawCircle(35, 90, YELLOW, 5, 1);
-	lcd_DrawCircle(35, 115, GREEN, 5, 1);
-
-	lcd_DrawCircle(205, 65, RED, 5, 1);
-	lcd_DrawCircle(205, 90, YELLOW, 5, 1);
-	lcd_DrawCircle(205, 115, GREEN, 5, 1);
-	lcd_StrCenter(119, 15, "NORMAL", CYAN, YELLOW, 12, 0);
+//	lcd_Clear(WHITE);
+//	lcd_DrawRectangle(10, 40, 59, 239, BLACK);
+//	lcd_DrawRectangle(180, 40, 229, 239, BLACK);
+//	lcd_DrawCircle(35, 65, RED, 5, 1);
+//	lcd_DrawCircle(35, 90, YELLOW, 5, 1);
+//	lcd_DrawCircle(35, 115, GREEN, 5, 1);
+//
+//	lcd_DrawCircle(205, 65, RED, 5, 1);
+//	lcd_DrawCircle(205, 90, YELLOW, 5, 1);
+//	lcd_DrawCircle(205, 115, GREEN, 5, 1);
+	lcd_StrCenter(10, 15, "NORMAL", CYAN, YELLOW, 12, 0);
 }
 //TrafficLight: 0 for left, 1 for right
 //Colour: 0 for green, 1 for yellow, 2 for red
 void lcd_TrafficLight(int TrafficLight, int Colour){
 	switch (Colour){
-	case 0:
-		Init_lcd();
+	case GREEN:
+//		lcd_StrCenter(10, 15, "NORMAL", CYAN, YELLOW, 12, 0);
 		switch (TrafficLight) {
 			case 0:
 				lcd_DrawCircle(35, 65, GRAY, 5, 1);
@@ -544,8 +544,8 @@ void lcd_TrafficLight(int TrafficLight, int Colour){
 				break;
 		}
 		break;
-	case 1:
-		Init_lcd();
+	case YELLOW:
+//		lcd_StrCenter(10, 15, "NORMAL", CYAN, YELLOW, 12, 0);
 		switch (TrafficLight) {
 			case 0:
 				lcd_DrawCircle(35, 65, GRAY, 5, 1);
@@ -561,8 +561,8 @@ void lcd_TrafficLight(int TrafficLight, int Colour){
 				break;
 		}
 		break;
-	case 2:
-		Init_lcd();
+	case RED:
+//		lcd_StrCenter(10, 15, "NORMAL", CYAN, YELLOW, 12, 0);
 		switch (TrafficLight) {
 			case 0:
 				lcd_DrawCircle(35, 65, RED, 5, 1);

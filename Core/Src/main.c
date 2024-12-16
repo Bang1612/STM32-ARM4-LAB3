@@ -107,32 +107,52 @@ int main(void)
   MX_FSMC_Init();
   /* USER CODE BEGIN 2 */
   system_init();
-  lcd_Clear(WHITE);
-  test_lcd();
+  lcd_Clear(BLACK);
+//  test_lcd();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if(flag_timer4){
+	  if(flag_timer4 ){
 		  setTimer4(50);
 		  button_Scan();
-		  fsm_tuning_run();
+
+			if (button_count[0] == 1) {
+				status++;
+				if (status > 3)
+					status = 0;
+				switch (status) {
+				case MODIFICATION_RED:
+					temp = RED_TIME;
+					break;
+				case MODIFICATION_YELLOW:
+					temp = YELLOW_TIME;
+					break;
+				case MODIFICATION_GREEN:
+					temp = GREEN_TIME;
+					break;
+				default:
+					break;
+				}
+				lcd_Clear(BLACK);
+			}
+
+			fsm_tuning_run();
+
 	  }
 		if (flag_timer3 && status != NORMAL) {
 			light_freq= !light_freq;
 			setTimer3(250);
 		}
-//	  test_button();
 	  if(flag_timer2 && status == NORMAL){
+		  lcd_StrCenter(10, 15, "NORMAL", BLACK, YELLOW, 16, 0);
 		  if(light_status > 4) light_status =0;
 		  else light_status++;
-//		  fsm_auto_run();
+		  fsm_auto_run();
 	  }
-	  if(button_count[0] != 0){
-		  status++;
-	  }
+
 
     /* USER CODE END WHILE */
 
@@ -197,9 +217,9 @@ void system_init(){
 	  button_init();
 	  lcd_init();
 	  setTimer4(50);
-	  TrafficLightInit();
+//	  TrafficLightInit();
 //	  light_status= 0;
-	  status= 0;
+//	  status= 0;
 }
 
 uint8_t count_led_debug = 0;

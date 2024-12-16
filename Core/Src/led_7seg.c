@@ -53,7 +53,6 @@ void led7_Scan(){
 	HAL_GPIO_WritePin(LD_LATCH_GPIO_Port, LD_LATCH_Pin, 0);
 	HAL_SPI_Transmit(&hspi1, (void*)&spi_buffer, 2, 1);
 	HAL_GPIO_WritePin(LD_LATCH_GPIO_Port, LD_LATCH_Pin, 1);
-	HAL_Delay(1);
 }
 
 /**

@@ -18,5 +18,6 @@
 //#include "global.h"
 extern int status;
 extern int light_freq;
+extern int temp;
 void fsm_tuning_run();
 #endif /* INC_FSM_TUNING_H_ */
